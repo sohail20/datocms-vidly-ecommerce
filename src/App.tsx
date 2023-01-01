@@ -12,6 +12,7 @@ const client = buildClient({
   apiToken:
     process.env.REACT_APP_DATOCMS_READONLY_API_KEY ||
     '54c731b10e58adae303dc14b37ffff',
+    environment:"development",
 });
 
 const fetchUploads = async (p: ProductType) => {
@@ -29,6 +30,7 @@ export default function App() {
       filter: { type: 'product' },
     })) as unknown as ProductType[];
 
+    console.log("products",products)
     const withImages = await Promise.all(products.map(fetchUploads));
 
     setProducts(withImages);

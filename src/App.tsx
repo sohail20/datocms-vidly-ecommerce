@@ -3,6 +3,8 @@ import { ProductType } from './types';
 import { buildClient } from '@datocms/cma-client-browser';
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
+import { base_url } from './config';
 
 const snipcartApiToken =
   process.env.REACT_APP_SNIPCART_API_KEY ||
@@ -23,12 +25,17 @@ const fetchUploads = async (p: ProductType) => {
 };
 
 export default function App() {
+
   const [products, setProducts] = useState<ProductType[] | null>(null);
 
   const fetchProducts = useCallback(async () => {
-    const products = (await client.items.list({
-      filter: { type: 'product' },
-    })) as unknown as ProductType[];
+    const products = await axios({
+      url: `${base_url}product/allPosts`,
+      method: "GET"
+    }) as unknown as ProductType[]
+    // const products = (await client.items.list({
+    //   filter: { type: 'product' },
+    // })) as unknown as ProductType[];
 
     console.log("products",products)
     const withImages = await Promise.all(products.map(fetchUploads));

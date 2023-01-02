@@ -3,6 +3,8 @@ import { ProductType } from './types';
 import { buildClient } from '@datocms/cma-client-browser';
 import { useCallback, useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
+import { base_url } from './config';
 
 const snipcartApiToken =
   process.env.REACT_APP_SNIPCART_API_KEY ||
@@ -23,6 +25,11 @@ const fetchUploads = async (p: ProductType) => {
 };
 
 export default function App() {
+
+  axios({
+    url: `${base_url}product/allPosts`,
+    method: "GET"
+  }).then((res) => console.log(res))
   const [products, setProducts] = useState<ProductType[] | null>(null);
 
   const fetchProducts = useCallback(async () => {

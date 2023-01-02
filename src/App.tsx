@@ -41,9 +41,7 @@ export default function App() {
       .catch((error) => alert(error));
   };
 
-  if (document !== null)
-    document.querySelector("form").addEventListener("submit", handleSubmit);
-
+  document.querySelector("form").addEventListener("submit", handleSubmit);
 
   return (
     <div className="container">

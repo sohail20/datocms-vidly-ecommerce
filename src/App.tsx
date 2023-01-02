@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { base_url } from './helper';
-import { AnyRecord } from 'dns';
 
 const snipcartApiToken =
   process.env.REACT_APP_SNIPCART_API_KEY ||

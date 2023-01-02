@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { base_url } from './helper';
+import { AnyRecord } from 'dns';
 
 const snipcartApiToken =
   process.env.REACT_APP_SNIPCART_API_KEY ||
@@ -24,6 +25,25 @@ export default function App() {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData: any = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
+  };
+
+  if (document !== null)
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+
 
   return (
     <div className="container">

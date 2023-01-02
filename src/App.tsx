@@ -29,14 +29,27 @@ export default function App() {
     <div className="container">
       <main className="main">
         <h1>E-Commerce built with React + SnipCart + DatoCMS</h1>
-        <form onSubmit={(e)=>{
-          e.preventDefault()
-          console.log(e.target)
-          }}>
-          <input id="email" name="email" placeholder="Email" type="email"/>
-          <input id="full-name" name="full-name" placeholder="Full Name" type="text"/>
-          <input type="submit" value="Submit"/>
+        <form name="contact" method="POST" data-netlify="true">
+          <p>
+            <label>Your Name: <input type="text" name="name" /></label>
+          </p>
+          <p>
+            <label>Your Email: <input type="email" name="email" /></label>
+          </p>
+          <p>
+            <label>Your Role: <select name="role[]" multiple>
+              <option value="leader">Leader</option>
+              <option value="follower">Follower</option>
+            </select></label>
+          </p>
+          <p>
+            <label>Message: <textarea name="message"></textarea></label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
         </form>
+
         <div className="grid">
           {products &&
             products.map((product, i) => <Product product={product} key={i} />)}

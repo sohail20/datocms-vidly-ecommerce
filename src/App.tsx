@@ -29,7 +29,6 @@ export default function App() {
     <div className="container">
       <main className="main">
         <h1>E-Commerce built with React + SnipCart + DatoCMS</h1>
-
         <div className="grid">
           {products &&
             products.map((product, i) => <Product product={product} key={i} />)}

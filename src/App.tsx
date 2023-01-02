@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { base_url } from './helper';
+import SingleForm from './components/Forms/SingleForm';
 
 const snipcartApiToken =
   process.env.REACT_APP_SNIPCART_API_KEY ||
@@ -25,51 +26,17 @@ export default function App() {
     fetchProducts();
   }, [fetchProducts]);
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-
-    const myForm = event.target;
-    const formData: any = new FormData(myForm);
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => console.log("Form successfully submitted"))
-      .catch((error) => alert(error));
-  };
-
   return (
     <div className="container">
       <main className="main">
         <h1>E-Commerce built with React + SnipCart + DatoCMS</h1>
-        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
-          <p>
-            <label>Your Name: <input type="text" name="name" /></label>
-          </p>
-          <p>
-            <label>Your Email: <input type="email" name="email" /></label>
-          </p>
-          <p>
-            <label>Your Role: <select name="role[]" multiple>
-              <option value="leader">Leader</option>
-              <option value="follower">Follower</option>
-            </select></label>
-          </p>
-          <p>
-            <label>Message: <textarea name="message"></textarea></label>
-          </p>
-          <p>
-            <button type="submit">Send</button>
-          </p>
-        </form>
-
         <div className="grid">
           {products &&
             products.map((product, i) => <Product product={product} key={i} />)}
         </div>
       </main>
+
+      <SingleForm/>
       <div
         id="snipcart"
         data-config-modal-style="side"

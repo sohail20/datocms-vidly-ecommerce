@@ -41,13 +41,11 @@ export default function App() {
       .catch((error) => alert(error));
   };
 
-  document.querySelector("form").addEventListener("submit", handleSubmit);
-
   return (
     <div className="container">
       <main className="main">
         <h1>E-Commerce built with React + SnipCart + DatoCMS</h1>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
           <p>
             <label>Your Name: <input type="text" name="name" /></label>
           </p>

@@ -9,6 +9,7 @@
     "@mui/material": "^5.11.2",
     "axios": "^1.2.2",
     "react": "^18.2.0",
+    "react-datocms": "^4.0.13",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1"
   },

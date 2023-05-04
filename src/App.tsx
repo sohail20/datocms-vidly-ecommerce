@@ -1,16 +1,16 @@
 import Product from './components/Product';
-import { ProductType } from './types';
-import { useCallback, useEffect, useState } from 'react';
+// import { ProductType } from './types';
+// import { useCallback, useEffect, useState } from 'react';
 import { useQuerySubscription } from "react-datocms";
 
 import './App.css';
-import axios from 'axios';
-import { base_url } from './helper';
-import SingleForm from './components/Forms/SingleForm';
+// import axios from 'axios';
+// import { base_url } from './helper';
+// import SingleForm from './components/Forms/SingleForm';
 
-const snipcartApiToken =
-  process.env.REACT_APP_SNIPCART_API_KEY ||
-  'OWE3MmZmMjQtNTk3Yi00OThhLWEwMmUtZDY4ZWM4NzIwYzZiNjM2NjM0Mzc1NzE0MTUwNzI1';
+// const snipcartApiToken =
+//   process.env.REACT_APP_SNIPCART_API_KEY ||
+//   'OWE3MmZmMjQtNTk3Yi00OThhLWEwMmUtZDY4ZWM4NzIwYzZiNjM2NjM0Mzc1NzE0MTUwNzI1';
 
 export default function App() {
 
@@ -56,7 +56,6 @@ export default function App() {
     closed: "Connection closed",
   };
 
-  console.log("data", data)
   return (
     <div className="container">
 

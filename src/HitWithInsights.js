@@ -3,17 +3,22 @@ import PropTypes from "prop-types";
 import React from "react";
 
 function Hit({ hit, insights }) {
-  console.log("hit", hit);
+  // console.log("hit", hit);
+  let userToken;
+  window.aa('getUserToken', null, (_, token) => {
+    userToken = token
+  })
+
   return (
     <div
       onClick={() => {
         insights("clickedObjectIDsAfterSearch", {
-          eventName: "Add to favorite",
-          userToken: "user-1",
+          eventName: hit.objectID,
+          userToken: userToken,
         });
       }}
       style={{
-        cursor:"pointer"
+        cursor: "pointer"
       }}
     >
       <img

@@ -7,10 +7,12 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.2",
+    "algoliasearch": "^4.17.0",
     "axios": "^1.2.2",
     "react": "^18.2.0",
     "react-datocms": "^4.0.13",
     "react-dom": "^18.2.0",
+    "react-instantsearch-dom": "^6.39.1",
     "react-scripts": "^5.0.1"
   },
   "scripts": {

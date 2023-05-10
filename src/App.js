@@ -13,8 +13,8 @@ import "./App.css";
 import { HitWithInsights } from "./HitWithInsights";
 
 const searchClient = algoliasearch(
-  "B1G2GM9NG0",
-  "aadef574be1f9252bb48d4ea09b5cfe5"
+  "QHYLAXTG31",
+  "babc39e7f16ddece7fd1a1848312ff0e"
 );
 
 class App extends Component {
@@ -22,12 +22,12 @@ class App extends Component {
     return (
       <div className="ais-InstantSearch">
         <h1>Shopping</h1>
-        <InstantSearch indexName="demo_ecommerce" searchClient={searchClient}>
+        <InstantSearch indexName="dev_test" searchClient={searchClient}>
           <div className="left-panel">
             <ClearRefinements />
             <h2>Brands</h2>
-            <RefinementList attribute="brand" />
-            <Configure hitsPerPage={8} clickAnalytics />
+            <RefinementList attribute="postType.en" />
+            <Configure hitsPerPage={2} clickAnalytics />
           </div>
           <div className="right-panel">
             <SearchBox />

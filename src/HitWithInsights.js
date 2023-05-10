@@ -1,38 +1,51 @@
-import { connectHitInsights, Highlight } from 'react-instantsearch-dom';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { connectHitInsights } from "react-instantsearch-dom";
+import PropTypes from "prop-types";
+import React from "react";
 
 function Hit({ hit, insights }) {
+  console.log("hit", hit);
   return (
-    <div>
-      <img src={hit.image} align="left" alt={hit.name} title={hit.name}/>
+    <div
+      onClick={() => {
+        insights("clickedObjectIDsAfterSearch", {
+          eventName: "Add to favorite",
+          userToken: "user-1",
+        });
+      }}
+      style={{
+        cursor:"pointer"
+      }}
+    >
+      <img
+        src={hit.heroImage.imageUrl}
+        align="left"
+        alt={hit.heroImage.alt}
+        style={{ width: 300 }}
+      />
       <div className="hit-name">
-        <Highlight attribute="name" hit={hit} />
+        <b style={{ marginTop: 20 }}>{hit.title.en}</b>
       </div>
       <div className="hit-description">
-        <Highlight attribute="description" hit={hit} />
+        {hit.heroCaption.en}
       </div>
-      <div className="hit-price">${hit.price}</div>
-      <button
+      <div className="hit-price">{hit.price}</div>
+      {/* <button
+                className="hit-action"
+                
+            >
+                Send click
+            </button> */}
+      {/* <button
         className="hit-action"
         onClick={() => {
-          insights('clickedObjectIDsAfterSearch', {
-            eventName: 'Add to favorite',
-          });
-        }}
-      >
-        Send click
-      </button>
-      <button
-        className="hit-action"
-        onClick={() => {
-          insights('convertedObjectIDsAfterSearch', {
-            eventName: 'Add to basket',
+          insights("convertedObjectIDsAfterSearch", {
+            eventName: "Add to basket",
+            userToken: "user-1",
           });
         }}
       >
         Send conversion
-      </button>
+      </button> */}
     </div>
   );
 }

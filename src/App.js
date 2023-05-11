@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="ais-InstantSearch">
-        <h1>Shopping</h1>
+        {/* <h1>Shopping</h1> */}
         <InstantSearch indexName="dev_test" searchClient={searchClient}>
           <div className="left-panel">
             <ClearRefinements />

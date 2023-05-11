@@ -25,9 +25,9 @@ class App extends Component {
         <InstantSearch indexName="dev_test" searchClient={searchClient}>
           <div className="left-panel">
             <ClearRefinements />
-            <h2>Brands</h2>
+            <h2>Post Types</h2>
             <RefinementList attribute="postType.en" />
-            <Configure hitsPerPage={2} clickAnalytics />
+            <Configure hitsPerPage={2} clickAnalytics  />
           </div>
           <div className="right-panel">
             <SearchBox />

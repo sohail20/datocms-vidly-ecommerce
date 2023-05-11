@@ -31,30 +31,67 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"
+    />
 
     <title>getting-started</title>
-  
+
+    <!-- Google Tag Manager -->
     <script>
-      var ALGOLIA_INSIGHTS_SRC = "https://cdn.jsdelivr.net/npm/search-insights@2.3.0";
-      !function(e,a,t,n,s,i,c){e.AlgoliaAnalyticsObject=s,e[s]=e[s]||function(){
-      (e[s].queue=e[s].queue||[]).push(arguments)},i=a.createElement(t),c=a.getElementsByTagName(t)[0],
-      i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
-      }(window,document,"script",ALGOLIA_INSIGHTS_SRC,"aa");
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-56FCNPX");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+      var ALGOLIA_INSIGHTS_SRC =
+        "https://cdn.jsdelivr.net/npm/search-insights@2.3.0";
+      !(function (e, a, t, n, s, i, c) {
+        (e.AlgoliaAnalyticsObject = s),
+          (e[s] =
+            e[s] ||
+            function () {
+              (e[s].queue = e[s].queue || []).push(arguments);
+            }),
+          (i = a.createElement(t)),
+          (c = a.getElementsByTagName(t)[0]),
+          (i.async = 1),
+          (i.src = n),
+          c.parentNode.insertBefore(i, c);
+      })(window, document, "script", ALGOLIA_INSIGHTS_SRC, "aa");
 
       // Initialize library
-      aa('init', {
-        appId: 'QHYLAXTG31',
-        apiKey: 'babc39e7f16ddece7fd1a1848312ff0e',
-        useCookie: true
+      aa("init", {
+        appId: "QHYLAXTG31",
+        apiKey: "babc39e7f16ddece7fd1a1848312ff0e",
+        useCookie: true,
       });
-      
+
+      // aa(
+      //   "onUserTokenChange",
+      //   (userToken) => {
+      //     window.dataLayer.push({
+      //       algoliaUserToken: userToken,
+      //     });
+      //   },
+      //   { immediate: true }
+      // );
     </script>
   </head>
   <body>
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text"  name="name">
-      <input type="email" name="email">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
       <textarea name="message"></textarea>
     </form>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -73,5 +110,15 @@
       src="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.js"
       async
     ></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-56FCNPX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>

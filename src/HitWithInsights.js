@@ -5,9 +5,14 @@ import React from "react";
 function Hit({ hit, insights }) {
   // console.log("hit", hit);
   let userToken;
+
   window.aa('getUserToken', null, (_, token) => {
     userToken = token
   })
+
+  // window.dataLayer.push({
+  //   algoliaUserToken: userToken,
+  // });
 
   return (
     <div
@@ -17,9 +22,14 @@ function Hit({ hit, insights }) {
           userToken: userToken,
         });
       }}
+      data-insights-object-id={`"${hit.objectID}"`}
+      data-insights-position={`"${hit.__position}"`}
+      data-insights-query-id={`"${hit.__queryID}"`}
+      data-insights-filter={`${hit.objectID}`}
       style={{
         cursor: "pointer"
       }}
+      class="btn-view-detail"
     >
       <img
         src={hit.heroImage.imageUrl}
@@ -33,24 +43,7 @@ function Hit({ hit, insights }) {
       <div className="hit-description">
         {hit.heroCaption.en}
       </div>
-      <div className="hit-price">{hit.price}</div>
-      {/* <button
-                className="hit-action"
-                
-            >
-                Send click
-            </button> */}
-      {/* <button
-        className="hit-action"
-        onClick={() => {
-          insights("convertedObjectIDsAfterSearch", {
-            eventName: "Add to basket",
-            userToken: "user-1",
-          });
-        }}
-      >
-        Send conversion
-      </button> */}
+      {/* <div className="hit-price">{hit.price}</div> */}
     </div>
   );
 }
@@ -60,4 +53,4 @@ Hit.propTypes = {
   insights: PropTypes.func.isRequired,
 };
 
-export const HitWithInsights = connectHitInsights(window.aa)(Hit);
+export const HitWithInsights = connectHitInsights(window && window.aa)(Hit);
